@@ -98,6 +98,12 @@ int main(void)
 
 	extStart(&EXTD1, &extcfg);
 
+	palClearPad(GPIOB, GPIOB_ENC1_PWR);
+
+
+	AFIO->MAPR |= AFIO_MAPR_TIM2_REMAP_PARTIALREMAP1;
+	AFIO->MAPR |= AFIO_MAPR_SWJ_CFG_JTAGDISABLE;
+
 	rccEnableTIM3(FALSE);
 	rccResetTIM3();
 	rccEnableTIM2(FALSE);
@@ -109,8 +115,6 @@ int main(void)
 	configEnc(STM32_TIM3);
 	configEnc(STM32_TIM4);
 
-	AFIO->MAPR |= AFIO_MAPR_TIM2_REMAP_PARTIALREMAP1;
-	AFIO->MAPR |= AFIO_MAPR_SWJ_CFG_JTAGDISABLE;
 	BaseSequentialStream * prnt = (BaseSequentialStream *) &SD1;
 
 	int32_t last2 = STM32_TIM2->CNT;

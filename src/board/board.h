@@ -31,7 +31,7 @@
 #endif
 
 #if !defined(STM32_HSECLK)
-#define STM32_HSECLK                16000000
+#define STM32_HSECLK                12000000
 #endif
 
 /*
@@ -142,8 +142,8 @@ PA14    :   SWCLK           SWCLK
 PA15    :   ENC3_A          TIM2_CH1    / AF Input Floating
 
  */
-#define VAL_GPIOACRL            0x44888884      /*  PA7...PA0 */
-#define VAL_GPIOACRH            0x4444B4BB      /* PA15...PA8 */
+#define VAL_GPIOACRL            0x88888884      /*  PA7...PA0 */ // 0x44888884
+#define VAL_GPIOACRH            0x8444B4BB      /* PA15...PA8 */ // 0x4444B4BB
 #define VAL_GPIOAODR            0xFFFFFFFF
 
 /*
@@ -167,7 +167,7 @@ PB14    :   --
 PB15    :   --
 
  */
-#define VAL_GPIOBCRL            0x44334883      /*  PB7...PB0 */
+#define VAL_GPIOBCRL            0x88338883      /*  PB7...PB0 */ // 0x44334883
 #define VAL_GPIOBCRH            0x88888888      /* PB15...PB8 */
 #define VAL_GPIOBODR            0xFFFFFFFF
 
